@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="StarWarsApp">
+<head>
+  <title>StarWars People Browser</title>
+  <!-- Material design styles -->
+  <link rel="stylesheet" href="css/angular-material.min.css">
+  <link rel="stylesheet" href="css/angular-material.layouts.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- My dist file per gulp build -->
+  <script src="dist.js"></script>
+</head>
+<body>
+  You may only select 5
+  <div layout="column" ng-controller="AppController">
+    <div layout="row">
+      <md-content flex ng-view>
+    
+      </md-content>
+    </div>
+  </div>
+</body>
+</html>
