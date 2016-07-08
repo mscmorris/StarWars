@@ -1,2 +1,8 @@
 # StarWars People Browser
-More to come...
+To run locally
+
+  run npm update
+
+followed by 
+  
+  gulp build:prod
