@@ -18,7 +18,8 @@ gulp.task("clean:dist", function() {
 gulp.task("build:css", function() {
   return gulp.src([
     "./node_modules/angular-material/angular-material.min.css",
-    "./node_modules/angular-material/layouts/angular-material.layouts.min.css"
+    "./node_modules/angular-material/layouts/angular-material.layouts.min.css",
+    "./src/assets/css/*.css"
   ]).pipe(gulp.dest(`${buildDir}/css`))
 })
 
@@ -60,7 +61,7 @@ gulp.task("default", function(fn) {
 })
 
 gulp.task('watch', function() {
-  var watcher = gulp.watch("src/**/*.js", ["build:script"])
+  var watcher = gulp.watch(["src/**/*.js", "src/**/*.css", "src/**/*.html"], ["build:script", "build:css", "build:html"])
 
   watcher.on('change', function() {
     connect.reload()

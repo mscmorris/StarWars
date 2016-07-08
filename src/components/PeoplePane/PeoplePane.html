@@ -1,5 +1,8 @@
 <div class="detail-pane">
   <div class="detail-pane--person" ng-repeat="person in $ctrl.selected">
-    {{person.name}}
+    <h4>{{person.name}}</h4>
+    <div class="detail-pane--gender">
+      <span>Gender: </span> {{person.gender }}
+    </div>
   </div>
 </div>

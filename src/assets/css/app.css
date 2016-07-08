@@ -1,0 +1,11 @@
+.detail-pane {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 45%;
+  height: 100%;
+}
+
+.detail-pane--person {
+  width: 100%;   
+}
