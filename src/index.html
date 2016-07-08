@@ -13,13 +13,11 @@
 <body>
   You may only select 5
   <div layout="column">
-    <div layout="row">
+    <div layout="row" ng-controller="PeopleViewerController as root">
       <!-- <md-content flex ng-view> -->
-      <people-viewer ng-controller="PeopleViewerController as root">
-        <people-list selected="root.selected"
-                     on-selected-change="root.selected = $event.selected"></people-list>
-        <people-pane selected="root.selected"></people-pane>
-      </people-viewer>
+      <people-list flex="50" selected="root.selected"
+                   on-selected-change="root.selected = $event.selected"></people-list>
+      <people-pane selected="root.selected"></people-pane>
       <!-- </md-content> -->
     </div>
   </div>

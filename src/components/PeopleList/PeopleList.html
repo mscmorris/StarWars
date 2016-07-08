@@ -2,11 +2,11 @@
     infinite-scroll-disabled="$ctrl.peopleList.busy" 
     class="people-list">
 
-  <li class="people-list--person"
+  <li ng-class="{ 'person': true, 'person--selected': $ctrl.isSelected(person.id) }"
       ng-repeat="person in $ctrl.peopleList.list"
       ng-click="$ctrl.toggle(person.id)">
 
-    <span>{{person.name}}</span>
+    <h2 class="person--name">{{person.name}}</h2>
 
   </li>
 

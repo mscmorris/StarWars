@@ -1,3 +1,23 @@
+.people-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 5%;
+  width: 45%
+}
+
+.person--selected {
+  background-color: rgba(239, 141, 36, 0.25);
+  transition: all ease-in 0.3s;
+  -webkit-transition: all ease-in 0.3s;
+  -moz-transition: all ease-in 0.3s;
+  -ms-transition: all ease-in 0.3s;
+}
+
+.person--name {
+  font-size: 1.25rem;
+  font-weight: normal;
+}
+
 .detail-pane {
   position: fixed;
   top: 10px;
@@ -9,3 +29,4 @@
 .detail-pane--person {
   width: 100%;   
 }
+
