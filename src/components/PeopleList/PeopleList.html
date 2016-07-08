@@ -1,4 +1,4 @@
-<md-toolbar>
+<md-toolbar md-theme="dark-orange">
   <div class="md-toolbar-tools">
     People
   </div>
@@ -8,7 +8,14 @@
     infinite-scroll-disabled="$ctrl.list.busy" 
     class="people-list">
 
-  <md-subheader>You've selected {{$ctrl.totalSelected()}} of {{$ctrl.maxSelectable}} characters</md-subheader>
+  <md-subheader>
+    You've selected {{$ctrl.totalSelected()}} of {{$ctrl.maxSelectable}} characters
+    <div
+      class="people-list--deselect"
+      ng-show="$ctrl.selected.length"
+      ng-click="$ctrl.deselectAll()">Deselect all</div>
+
+  </md-subheader>
 
   <md-list-item ng-class="{ 
         'person': true, 

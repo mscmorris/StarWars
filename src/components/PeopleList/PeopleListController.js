@@ -9,7 +9,6 @@ export default function($scope) {
   this.maxSelectable = 5
 
   this.loadMore = function() {
-    console.log('here')
     this.list.fetch()
   }
 
@@ -21,6 +20,11 @@ export default function($scope) {
     }
 
     this.onSelectedChange({ $event: { selected: this.selected }})
+  }
+
+  this.deselectAll = function() {
+    this.selected = []
+    this.onSelectedChange({ $event: { selected: this.selected }}) 
   }
 
   this.isSelected = function(index) {

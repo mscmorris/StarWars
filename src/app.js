@@ -6,7 +6,6 @@ import "angular-route"
 import "angular-aria"
 import "angular-animate"
 import "angular-material"
-import "rx-angular"
 import "ng-infinite-scroll"
 
 import peopleListModule from "./components/PeopleList/PeopleList.js"
@@ -15,10 +14,13 @@ import peopleViewerModule from "./components/PeopleViewer/PeopleViewer.js"
 import dynamicListModule from "./shared/DynamicList/DynamicList.js"
 import filtersModule from "./filters/filters.js"
 
-let baseModules = [ "ngRoute", "ngAria", "ngAnimate", "ngMaterial", "infinite-scroll", "rx" ]
+let baseModules = [ "ngRoute", "ngAria", "ngAnimate", "ngMaterial", "infinite-scroll" ]
 let appModules  = [ peopleViewerModule, peopleListModule, peoplePaneModule, dynamicListModule, filtersModule ]
 let StarWarsApp = angular
   .module("StarWarsApp", baseModules.concat(appModules))
+  .config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('dark-orange').dark()
+  })
   .constant("BASE_API", "http://swapi.co/api/people/")
 
 // Base App controller
