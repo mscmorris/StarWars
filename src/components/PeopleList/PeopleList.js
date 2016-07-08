@@ -2,13 +2,13 @@
 
 import angular from "angular"
 import PeopleListService from "./PeopleListService.js"
-import PeopleListDirective from "./PeopleListDirective.js"
+import PeopleListComponent from "./PeopleListComponent.js"
 
 let moduleName = "PeopleList"
 
 angular
   .module(moduleName, [])
-  .component("peopleList", PeopleListDirective)
+  .component("peopleList", PeopleListComponent)
   .service("PeopleListService", ["$http", "rx", PeopleListService])
 
 export default moduleName

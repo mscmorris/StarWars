@@ -10,12 +10,10 @@ import PeopleListController from "./PeopleListController.js"
  */
 
 export default {
-    restrict: "E",
-    transclude: true,
     controller: PeopleListController,
     templateUrl: "components/PeopleList/PeopleList.html",
     bindings: {
       "selected": "<",
-      "onSelectedChanged": "&"
+      "onSelectedChange": "&"
     }
 }

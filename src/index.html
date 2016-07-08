@@ -16,7 +16,7 @@
       <!-- <md-content flex ng-view> -->
       <people-viewer ng-controller="PeopleViewerController as root">
         <people-list selected="root.selected"
-                      on-selected-changed="root.selected = $event.selected"></people-list>
+                     on-selected-change="root.selected = $event.selected"></people-list>
         <people-pane selected="root.selected"></people-pane>
       </people-viewer>
       <!-- </md-content> -->

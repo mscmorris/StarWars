@@ -1,10 +1,10 @@
-<ul infinite-scroll="peopleList.fetch()" 
-    infinite-scroll-disabled="peopleList.busy" 
+<ul infinite-scroll="$ctrl.peopleList.fetch()" 
+    infinite-scroll-disabled="$ctrl.peopleList.busy" 
     class="people-list">
 
   <li class="people-list--person"
-      ng-repeat="person in peopleList.list"
-      ng-click="toggle(person.id)">
+      ng-repeat="person in $ctrl.peopleList.list"
+      ng-click="$ctrl.toggle(person.id)">
 
     <span>{{person.name}}</span>
 
