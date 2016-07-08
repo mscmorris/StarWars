@@ -1,6 +1,9 @@
 <div class="detail-pane" layout="column">
+  <md-card>
   <div layout="column" class="detail-pane--person" ng-repeat="person in $ctrl.selected">
-    <h4>{{person.name}}</h4>
+    <md-card-title>
+      <md-card-title-text>{{person.name}}</md-card-title-text>
+    </md-card-title>
     <div class="detail-pane--gender">
       <strong>Gender: </strong> {{person.gender }}
     </div>
@@ -13,4 +16,5 @@
       </div>
     </div>
   </div>
+  </md-card>
 </div>
