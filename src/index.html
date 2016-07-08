@@ -14,9 +14,10 @@
   <div layout="column">
     <div layout="row">
       <!-- <md-content flex ng-view> -->
-      <people-viewer>
-        <people-list></people-list>
-        <people-pane></people-pane>
+      <people-viewer ng-controller="PeopleViewerController as root">
+        <people-list selected="root.selected"
+                      on-selected-changed="root.selected = $event.selected"></people-list>
+        <people-pane selected="root.selected"></people-pane>
       </people-viewer>
       <!-- </md-content> -->
     </div>

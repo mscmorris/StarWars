@@ -10,6 +10,8 @@ import "rx-angular"
 import "ng-infinite-scroll"
 
 import peopleListModule from "./components/PeopleList/PeopleList.js"
+import peoplePaneModule from "./components/PeoplePane/PeoplePane.js"
+import peopleViewerModule from "./components/PeopleViewer/PeopleViewer.js"
 
 let StarWarsApp = angular.module("StarWarsApp", [
   "ngRoute", 
@@ -18,7 +20,9 @@ let StarWarsApp = angular.module("StarWarsApp", [
   "ngMaterial",
   "infinite-scroll",
   "rx",
-  peopleListModule
+  peopleViewerModule,
+  peopleListModule,
+  peoplePaneModule
   ])
 
 // Base App controller

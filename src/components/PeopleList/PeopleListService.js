@@ -8,6 +8,10 @@
 // The swapi people API base endpoint
 const BASE_ENDPOINT = "http://swapi.co/api/people/"
 
+function generateId(seed) {
+  return seed + 1
+}
+
 // main export
 export default function ($http, rx) {
 
@@ -25,7 +29,10 @@ export default function ($http, rx) {
     .then((result) => {
       this.busy = false
       this.next = result.data.next
-      this.list = this.list.concat(result.data.results)
+      result.data.results.forEach((e) => {
+        e.id = generateId(this.list.length)
+        this.list.push(e)
+      })
     })
   }
 }

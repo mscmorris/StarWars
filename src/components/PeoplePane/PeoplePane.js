@@ -1,12 +1,12 @@
 "use strict"
 
 import angular from "angular"
-import PeoplePaneDirective from "./PeoplePaneDirective"
+import PeoplePaneComponent from "./PeoplePaneComponent.js"
 
 let moduleName = "PeoplePane"
 
 angular
   .module(moduleName, [])
-  .directive("peoplePane", PeoplePaneDirective)
+  .component("peoplePane", PeoplePaneComponent)
 
 export default moduleName

@@ -6,10 +6,11 @@
  */
 
 export default function($scope, rx, PeopleListService) {
-  
-  // var parentController = PeopleViewerController
 
-  $scope.selected = []
   $scope.peopleList = PeopleListService
-  
+
+  $scope.toggle = function(index) {
+    this.selected.push($scope.peopleList[index])
+    this.onSelectedChanged({ $event: { selected: this.selected }})
+  }
 }

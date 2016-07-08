@@ -8,7 +8,7 @@ let moduleName = "PeopleList"
 
 angular
   .module(moduleName, [])
-  .directive("peopleList", PeopleListDirective)
+  .component("peopleList", PeopleListDirective)
   .service("PeopleListService", ["$http", "rx", PeopleListService])
 
 export default moduleName

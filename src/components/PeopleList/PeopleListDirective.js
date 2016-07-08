@@ -9,11 +9,13 @@ import PeopleListController from "./PeopleListController.js"
  * @author mmorris
  */
 
-export default function() {
-  return {
+export default {
     restrict: "E",
     transclude: true,
     controller: PeopleListController,
-    templateUrl: "components/PeopleList/PeopleList.html"
-  }
+    templateUrl: "components/PeopleList/PeopleList.html",
+    bindings: {
+      "selected": "<",
+      "onSelectedChanged": "&"
+    }
 }

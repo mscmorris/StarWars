@@ -1,5 +1,9 @@
 "use strict"
 
+/**
+ * 
+ */
+
 export default function($scope) {  
   $scope.people = []
 
