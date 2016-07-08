@@ -13,17 +13,9 @@ import peopleListModule from "./components/PeopleList/PeopleList.js"
 import peoplePaneModule from "./components/PeoplePane/PeoplePane.js"
 import peopleViewerModule from "./components/PeopleViewer/PeopleViewer.js"
 
-let StarWarsApp = angular.module("StarWarsApp", [
-  "ngRoute", 
-  "ngAria", 
-  "ngAnimate", 
-  "ngMaterial",
-  "infinite-scroll",
-  "rx",
-  peopleViewerModule,
-  peopleListModule,
-  peoplePaneModule
-  ])
+let baseModules = [ "ngRoute", "ngAria", "ngAnimate", "ngMaterial", "infinite-scroll", "rx" ]
+let appModules  = [ peopleViewerModule, peopleListModule, peoplePaneModule ]
+let StarWarsApp = angular.module("StarWarsApp", baseModules.concat(appModules))
 
 // Base App controller
 StarWarsApp.controller("AppController", function($scope) {})

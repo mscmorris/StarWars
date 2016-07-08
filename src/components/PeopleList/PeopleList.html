@@ -1,16 +1,25 @@
-<ul infinite-scroll="$ctrl.peopleList.fetch()" 
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    People
+  </div>
+</md-toolbar>
+<md-list infinite-scroll="$ctrl.peopleList.fetch()" 
     infinite-scroll-disabled="$ctrl.peopleList.busy" 
     class="people-list">
+  <md-subheader>You've selected {{$ctrl.totalSelected()}} of {{$ctrl.maxSelectable}} characters</md-subheader>
 
-  <li ng-class="{ 
+  <md-list-item ng-class="{ 
         'person': true, 
         'person--selected': $ctrl.isSelected(person.id), 
         'person--selectable': $ctrl.canSelectMore() || $ctrl.isSelected(person.id)}"
       ng-repeat="person in $ctrl.peopleList.list"
       ng-click="$ctrl.toggle(person.id)">
 
-    <h2 class="person--name">{{person.name}}</h2>
+    <h3 class="person--name">{{person.name}}</h3>
 
-  </li>
-
-</ul>
+  </md-list-item>
+</md-list>
+<md-progress-circular 
+  class="loading"
+  ng-show="$ctrl.peopleList.busy" 
+  md-mode="indeterminate"></md-progress-circular>

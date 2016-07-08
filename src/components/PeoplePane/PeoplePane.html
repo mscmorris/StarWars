@@ -1,20 +1,26 @@
+
 <div class="detail-pane" layout="column">
-  <md-card>
-  <div layout="column" class="detail-pane--person" ng-repeat="person in $ctrl.selected">
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      Details
+    </div>
+  </md-toolbar>
+  <md-card layout="column" ng-repeat="person in $ctrl.selected">
+
     <md-card-title>
       <md-card-title-text>{{person.name}}</md-card-title-text>
     </md-card-title>
-    <div class="detail-pane--gender">
-      <strong>Gender: </strong> {{person.gender }}
-    </div>
-    <div layout="row">
-      <div class="detail-pane--height" flex="30">
-        <strong>Height: </strong> {{person.height}}
+    <md-card-content>
+      <div>
+        <strong>Gender: </strong> {{person.gender }}
       </div>
-      <div class="detail-pane--mass" flex="30">
-        <strong>Mass: </strong> {{person.mass}}
-      </div>
-    </div>
+      <div layout="row">
+        <div class="detail-pane--height" flex="30">
+          <strong>Height: </strong> {{person.height}}
+        </div>
+        <div class="detail-pane--mass" flex="30">
+          <strong>Mass: </strong> {{person.mass}}
+        </div>
+    </md-card-content>
   </div>
-  </md-card>
 </div>

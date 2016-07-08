@@ -11,17 +11,15 @@
   <script src="dist.js"></script>
 </head>
 <body>
-  <header>
-    <h1>The People of StarWars</h1>
-  </header>
-  <div layout="column">
-    <div layout="row" ng-controller="PeopleViewerController as root">
-      <!-- <md-content flex ng-view> -->
-      <people-list flex="50" selected="root.selected"
-                   on-selected-change="root.selected = $event.selected"></people-list>
-      <people-pane selected="root.selected"></people-pane>
-      <!-- </md-content> -->
-    </div>
+  <md-content layout-padding>
+    <h1>The People of Star Wars</h1>
+    Click on a character name below to toggle more details about that character. You may select up to 5 characters at a time.
+  </md-content>
+  <div layout="row" ng-controller="PeopleViewerController as root">
+    <people-list flex="50" selected="root.selected"
+                 on-selected-change="root.selected = $event.selected"></people-list>
+    <people-pane flex="50" selected="root.selected"></people-pane>
   </div>
+  
 </body>
 </html>
