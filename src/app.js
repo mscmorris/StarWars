@@ -9,12 +9,17 @@ import "angular-material"
 import "rx-angular"
 import "ng-infinite-scroll"
 
+import peopleListModule from "./components/PeopleList/PeopleList.js"
+
 let StarWarsApp = angular.module("StarWarsApp", [
   "ngRoute", 
   "ngAria", 
   "ngAnimate", 
   "ngMaterial",
   "infinite-scroll",
-  "rx"])
+  "rx",
+  peopleListModule
+  ])
 
+// Base App controller
 StarWarsApp.controller("AppController", function($scope) {})

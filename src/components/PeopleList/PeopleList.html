@@ -1,0 +1,5 @@
+<ul infinite-scroll="peopleList.fetch()" infinite-scroll-disabled="peopleList.busy" class="people-list">
+  <li class="people-list--person" ng-repeat="person in peopleList.list">
+    <span>{{person.name}}</span>
+  </li>
+</ul>

@@ -11,11 +11,14 @@
 </head>
 <body>
   You may only select 5
-  <div layout="column" ng-controller="AppController">
+  <div layout="column">
     <div layout="row">
-      <md-content flex ng-view>
-    
-      </md-content>
+      <!-- <md-content flex ng-view> -->
+      <people-viewer>
+        <people-list></people-list>
+        <people-pane></people-pane>
+      </people-viewer>
+      <!-- </md-content> -->
     </div>
   </div>
 </body>

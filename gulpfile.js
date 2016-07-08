@@ -60,7 +60,7 @@ gulp.task("default", function(fn) {
 })
 
 gulp.task('watch', function() {
-  var watcher = gulp.watch("src/**/*.html", ['build:html'])
+  var watcher = gulp.watch("src/**/*.js", ["build:script"])
 
   watcher.on('change', function() {
     connect.reload()
