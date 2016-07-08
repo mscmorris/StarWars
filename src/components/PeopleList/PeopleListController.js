@@ -1,7 +1,7 @@
 "use strict"
 
 /**
- * The directive controller to coordinate communication
+ * The component controller to coordinate communication
  * @author mmorris
  */
 

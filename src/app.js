@@ -16,7 +16,9 @@ import dynamicListModule from "./shared/DynamicList/DynamicList.js"
 
 let baseModules = [ "ngRoute", "ngAria", "ngAnimate", "ngMaterial", "infinite-scroll", "rx" ]
 let appModules  = [ peopleViewerModule, peopleListModule, peoplePaneModule, dynamicListModule ]
-let StarWarsApp = angular.module("StarWarsApp", baseModules.concat(appModules))
+let StarWarsApp = angular
+  .module("StarWarsApp", baseModules.concat(appModules))
+  .constant("BASE_API", "http://swapi.co/api/people/")
 
 // Base App controller
 StarWarsApp.controller("AppController", function($scope) {})
