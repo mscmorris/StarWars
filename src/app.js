@@ -19,7 +19,13 @@ let appModules  = [ peopleViewerModule, peopleListModule, peoplePaneModule, dyna
 let StarWarsApp = angular
   .module("StarWarsApp", baseModules.concat(appModules))
   .config(function($mdThemingProvider) {
-    $mdThemingProvider.theme('dark-orange').dark()
+    $mdThemingProvider.theme("orange")
+      .primaryPalette("orange")
+      .accentPalette("lime")
+      .warnPalette("blue")
+
+    $mdThemingProvider.setDefaultTheme("orange")
+      
   })
   .constant("BASE_API", "http://swapi.co/api/people/")
 
