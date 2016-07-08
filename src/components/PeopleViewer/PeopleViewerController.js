@@ -5,6 +5,7 @@
  * @author mmorris
  */
 
-export default function() {
+export default function(DynamicList) {
   this.selected = []
+  this.items = new DynamicList("http://swapi.co/api/people/")
 }

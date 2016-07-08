@@ -13,6 +13,7 @@ export default {
     controller: PeopleListController,
     templateUrl: "components/PeopleList/PeopleList.html",
     bindings: {
+      "list": "<",
       "selected": "<",
       "onSelectedChange": "&"
     }

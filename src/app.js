@@ -12,9 +12,10 @@ import "ng-infinite-scroll"
 import peopleListModule from "./components/PeopleList/PeopleList.js"
 import peoplePaneModule from "./components/PeoplePane/PeoplePane.js"
 import peopleViewerModule from "./components/PeopleViewer/PeopleViewer.js"
+import dynamicListModule from "./shared/DynamicList/DynamicList.js"
 
 let baseModules = [ "ngRoute", "ngAria", "ngAnimate", "ngMaterial", "infinite-scroll", "rx" ]
-let appModules  = [ peopleViewerModule, peopleListModule, peoplePaneModule ]
+let appModules  = [ peopleViewerModule, peopleListModule, peoplePaneModule, dynamicListModule ]
 let StarWarsApp = angular.module("StarWarsApp", baseModules.concat(appModules))
 
 // Base App controller

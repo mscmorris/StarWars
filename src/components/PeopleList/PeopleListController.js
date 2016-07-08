@@ -5,9 +5,13 @@
  * @author mmorris
  */
 
-export default function($scope, rx, PeopleListService) {
-  this.peopleList = PeopleListService
+export default function($scope) {
   this.maxSelectable = 5
+
+  this.loadMore = function() {
+    console.log('here')
+    this.list.fetch()
+  }
 
   this.toggle = function(index) {
     if(this.isSelected(index)) {
@@ -28,7 +32,7 @@ export default function($scope, rx, PeopleListService) {
   }
 
   this.addSelected = function(index) {
-    return this.selected.push(this.peopleList.list.find(e => e.id == index))
+    return this.selected.push(this.list.items.find(e => e.id == index))
   }
 
   this.totalSelectable = function() {
