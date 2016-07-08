@@ -1,3 +1,5 @@
+"use strict"
+
 import angular from "angular"
 import PeopleListService from "./PeopleListService.js"
 import PeopleListDirective from "./PeopleListDirective.js"
