@@ -1,8 +1,16 @@
-<div class="detail-pane">
-  <div class="detail-pane--person" ng-repeat="person in $ctrl.selected">
+<div class="detail-pane" layout="column">
+  <div layout="column" class="detail-pane--person" ng-repeat="person in $ctrl.selected">
     <h4>{{person.name}}</h4>
     <div class="detail-pane--gender">
-      <span>Gender: </span> {{person.gender }}
+      <strong>Gender: </strong> {{person.gender }}
+    </div>
+    <div layout="row">
+      <div class="detail-pane--height" flex="30">
+        <strong>Height: </strong> {{person.height}}
+      </div>
+      <div class="detail-pane--mass" flex="30">
+        <strong>Mass: </strong> {{person.mass}}
+      </div>
     </div>
   </div>
 </div>

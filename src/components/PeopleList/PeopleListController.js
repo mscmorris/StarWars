@@ -11,8 +11,7 @@ export default function($scope, rx, PeopleListService) {
   this.toggle = function(index) {
     if(this.isSelected(index)) {
       this.removeSelected(index)
-    } else {
-      if(this.selected.length < 5)
+    } else if(this.canSelectMore()) {
         this.addSelected(index)
     }
 
@@ -29,5 +28,9 @@ export default function($scope, rx, PeopleListService) {
 
   this.addSelected = function(index) {
     return this.selected.push(this.peopleList.list.find(e => e.id == index))
+  }
+
+  this.canSelectMore = function() {
+    return this.selected.length < 5
   }
 }
