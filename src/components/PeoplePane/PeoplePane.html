@@ -5,10 +5,14 @@
       Details
     </div>
   </md-toolbar>
+  <md-card ng-show="!$ctrl.selected.length">
+    <md-card-content>
+      Select a character to get started
+    </md-card-content>
+  </md-card>
   <md-card layout="column" ng-repeat="person in $ctrl.selected">
-
     <md-card-title>
-      <md-card-title-text>{{person.name}}</md-card-title-text>
+      <md-card-title-text><strong>{{person.name}}</strong></md-card-title-text>
     </md-card-title>
     <md-card-content>
       <div>

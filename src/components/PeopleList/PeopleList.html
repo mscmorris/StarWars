@@ -7,7 +7,7 @@
     infinite-scroll="$ctrl.loadMore()" 
     infinite-scroll-disabled="$ctrl.list.busy" 
     class="people-list">
-    
+
   <md-subheader>You've selected {{$ctrl.totalSelected()}} of {{$ctrl.maxSelectable}} characters</md-subheader>
 
   <md-list-item ng-class="{ 
@@ -16,8 +16,13 @@
         'person--selectable': $ctrl.canSelectMore() || $ctrl.isSelected(person.id)}"
       ng-repeat="person in $ctrl.list.items"
       ng-click="$ctrl.toggle(person.id)">
-
-    <h3 class="person--name">{{person.name}}</h3>
+    <i ng-class="{
+      'fa': true,
+      'fa-plus': !$ctrl.isSelected(person.id),
+      'fa-minus': $ctrl.isSelected(person.id)}" 
+      aria-hidden="true"></i>
+      
+    <strong class="person--name">{{person.name}}</strong>
 
   </md-list-item>
 </md-list>
