@@ -12,15 +12,28 @@
     </md-card-title>
     <md-card-content>
       <div>
-        <strong>Gender: </strong> {{person.gender }}
+        <strong>Gender: </strong> {{person.gender | na}}
       </div>
       <div layout="row">
         <div class="detail-pane--height" flex="30">
-          <strong>Height: </strong> {{person.height}}
+          <strong>Height: </strong> {{person.height | na}}
         </div>
         <div class="detail-pane--mass" flex="30">
-          <strong>Mass: </strong> {{person.mass}}
+          <strong>Mass: </strong> {{person.mass | na}}
         </div>
+      </div>
+      <div layout="row">
+        <div class="detail-pane--hair" flex="30">
+          <strong>Hair: </strong> {{person.hair_color | na}}
+        </div>
+        <div class="detail-pane--eyes" flex="30">
+          <strong>Eyes: </strong> {{person.eye_color | na}}
+        </div>
+        <div class="detail-pane--skin" flex="30">
+          <strong>Skin: </strong> {{person.skin_color | na}}
+        </div>
+
+      </div>
     </md-card-content>
   </div>
 </div>

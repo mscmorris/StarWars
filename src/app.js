@@ -13,9 +13,10 @@ import peopleListModule from "./components/PeopleList/PeopleList.js"
 import peoplePaneModule from "./components/PeoplePane/PeoplePane.js"
 import peopleViewerModule from "./components/PeopleViewer/PeopleViewer.js"
 import dynamicListModule from "./shared/DynamicList/DynamicList.js"
+import filtersModule from "./filters/filters.js"
 
 let baseModules = [ "ngRoute", "ngAria", "ngAnimate", "ngMaterial", "infinite-scroll", "rx" ]
-let appModules  = [ peopleViewerModule, peopleListModule, peoplePaneModule, dynamicListModule ]
+let appModules  = [ peopleViewerModule, peopleListModule, peoplePaneModule, dynamicListModule, filtersModule ]
 let StarWarsApp = angular
   .module("StarWarsApp", baseModules.concat(appModules))
   .constant("BASE_API", "http://swapi.co/api/people/")
