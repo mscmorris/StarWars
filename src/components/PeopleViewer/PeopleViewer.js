@@ -1,13 +1,12 @@
 "use strict"
 
 import angular from "angular"
+import PeopleViewerController from "./PeopleViewerController.js"
 
 let moduleName = "PeopleViewer"
 
 angular
   .module(moduleName, [])
-  .controller("PeopleViewerController", function() {
-    this.selected = []
-  })
+  .controller("PeopleViewerController", PeopleViewerController)
 
 export default moduleName

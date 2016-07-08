@@ -6,7 +6,6 @@
  */
 
 export default {
-    
     templateUrl: "components/PeoplePane/PeoplePane.html",
     bindings: {
       selected: "<"
