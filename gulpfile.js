@@ -18,7 +18,7 @@ gulp.task("clean:dist", function() {
 gulp.task("build:css", function() {
   return gulp.src([
     "./node_modules/angular-material/angular-material.min.css",
-    "./node_modules/angular-material/angular-material.layouts.min.css"
+    "./node_modules/angular-material/layouts/angular-material.layouts.min.css"
   ]).pipe(gulp.dest(`${buildDir}/css`))
 })
 
