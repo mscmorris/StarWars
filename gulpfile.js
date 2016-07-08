@@ -23,6 +23,11 @@ gulp.task("build:css", function() {
   ]).pipe(gulp.dest(`${buildDir}/css`))
 })
 
+gulp.task("build:images", function() {
+  return gulp.src(["./src/assets/images/**"])
+    .pipe(gulp.dest(`${buildDir}/images`))
+})
+
 gulp.task("build:html", function() {
   return gulp.src(["./src/**/*.html"])
     .pipe(gulp.dest(buildDir))
@@ -53,11 +58,11 @@ gulp.task("servedev", function() {
 })
 
 gulp.task("build:prod", function(fn) {
-  sequence("clean:dist", "build:html", "build:css", "build:script", "serve", fn)
+  sequence("clean:dist", "build:html", "build:css", "build:images", "build:script", "serve", fn)
 })
 
 gulp.task("default", function(fn) {
-  sequence("clean:dist", "build:html", "build:css", "build:script", "watch", fn)
+  sequence("clean:dist", "build:html", "build:css", "build:images", "build:script", "watch", fn)
 })
 
 gulp.task('watch', function() {

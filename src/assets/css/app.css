@@ -2,6 +2,15 @@
   position: relative;
 }
 
+.header {
+  background-color: rgba(0,0,0,1);
+}
+
+.logo {
+  width: 100%;
+  max-width: 320px;
+}
+
 .person--selected {
   background-color: rgba(240,91,61,0.25);
   transition: all ease-in 0.3s;
