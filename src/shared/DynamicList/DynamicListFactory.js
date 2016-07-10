@@ -5,9 +5,15 @@
  * @author mmorris
  */
 
-export default function($http) {
+ let $intent$ = $scope.$createObservableFunction('loadMore')
+ let url$ = new rx.Subject()
+ let request$ = rx.Observable.fromPromise()
 
-  let DynamicList = function(startUrl) {
+ export default function($http, rx) {
+
+
+
+  let DynamicList = function($intent, startUrl) {
     this.busy      = false
     this.items     = []
     this.nextPage  = startUrl 
