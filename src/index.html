@@ -18,11 +18,11 @@
   </header>
 
   <div layout="row" class="people-viewer" ng-controller="PeopleViewerController as root">
-
     <people-list 
       flex="30"
-      list="root.items" 
+      list="root.list"
       selected="root.selected"
+      on-infinite-scroll="loadMore()"
       on-selected-change="root.selected = $event.selected"></people-list>
 
     <people-pane 

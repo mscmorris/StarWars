@@ -5,12 +5,8 @@
  * @author mmorris
  */
 
-export default function($scope) {
+export default function() {
   this.maxSelectable = 5
-
-  this.loadMore = function() {
-    this.list.fetch()
-  }
 
   this.toggle = function(index) {
     if(this.isSelected(index)) {
@@ -36,11 +32,7 @@ export default function($scope) {
   }
 
   this.addSelected = function(index) {
-    return this.selected.push(this.list.items.find(e => e.id == index))
-  }
-
-  this.totalSelectable = function() {
-
+    return this.selected.push(this.list.find(e => e.id == index))
   }
 
   this.totalSelected = function() {

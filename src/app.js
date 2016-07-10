@@ -7,6 +7,8 @@ import "angular-aria"
 import "angular-animate"
 import "angular-material"
 import "ng-infinite-scroll"
+// import "rx"
+import "rx-angular"
 
 // Modules
 import peopleListModule from "./components/PeopleList/PeopleList.js"
@@ -18,7 +20,7 @@ import genderIconsModule from "./components/GenderIcons/GenderIcons.js"
 // Filters
 import filtersModule from "./filters/filters.js"
 
-let baseModules = [ "ngRoute", "ngAria", "ngAnimate", "ngMaterial", "infinite-scroll" ]
+let baseModules = [ "ngRoute", "ngAria", "ngAnimate", "ngMaterial", "infinite-scroll", "rx" ]
 let appModules  = [ peopleViewerModule, peopleListModule, peoplePaneModule, dynamicListModule, genderIconsModule, filtersModule ]
 
 let StarWarsApp = angular

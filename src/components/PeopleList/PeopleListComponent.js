@@ -15,6 +15,7 @@ export default {
     bindings: {
       "list": "<",
       "selected": "<",
-      "onSelectedChange": "&"
+      "onSelectedChange": "&",
+      "onInfiniteScroll": "&"
     }
 }

@@ -5,7 +5,14 @@
  * @author mmorris
  */
 
-export default function(DynamicList, BASE_API) {
+export default function($scope, DynamicList, BASE_API) {
+  let intent$  = $scope.$createObservableFunction("loadMore")
+
   this.selected = []
-  this.items = new DynamicList(BASE_API)
+  this.list     = []
+
+  // listen for changes to the list and update the list
+  DynamicList(intent$, BASE_API)
+    .safeApply($scope, list => this.list = list)
+    .subscribe()
 }

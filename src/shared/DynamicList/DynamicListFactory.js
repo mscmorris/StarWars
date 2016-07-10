@@ -1,28 +1,22 @@
 "use strict"
 
 /**
- * A list which mediates it's own state fetching from an http site
+ * A reactive http-driven list
  * @author mmorris
  */
  export default function($http, rx) {
-  function HTTPDriver(request$) {
-    return request$.flatMapLatest(url => Rx.Observable.fromPromise($.get(url))).share()
+  let HTTPDriver = (request$) => request$.flatMapLatest(url => rx.Observable.fromPromise($http.get(url))).share()
+  let generateIds = function(array) {
+    return array.map((el, idx) => { el.id = idx; return el })
   }
 
   return function DynamicList(intent$, startWith) {
-    // set up our state
-    const url$  = new Rx.BehaviorSubject(startWith)
-    const page$ = new Rx.BehaviorSubject([])
-    // Perform the logic
-    const request$ = Rx.Observable.when(intent$.and(url$).thenDo((e, url) => url))
+    const url$  = new rx.BehaviorSubject(startWith)
+    const request$ = rx.Observable.when(intent$.and(url$).thenDo((e, url) => url))
     const response$ = HTTPDriver(request$)
-    // We're only interested in non-null values
-    const nextUrl$ = response$.map(res => res.next).filter(next => next)
-    const nextPage$ = response$.map(res => res.results)
-    // notify our state that we have changes
+    const nextUrl$ = response$.map(res => res.data.next).filter(next => next)
+    const nextPage$ = response$.map(res => res.data.results).startWith([])
     nextUrl$.subscribe(url$)
-    nextPage$.subscribe(page$)
-    // propagate
-    return page$
+    return nextPage$.scan((a, n) => a.concat(n), []).map(generateIds)
   }
 }

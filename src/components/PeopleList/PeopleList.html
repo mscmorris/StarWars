@@ -5,8 +5,8 @@
 </md-toolbar>
 
 <md-list 
-    infinite-scroll="$ctrl.loadMore()" 
-    infinite-scroll-disabled="$ctrl.list.busy" 
+    infinite-scroll="$ctrl.onInfiniteScroll()"
+    infinite-scroll-disabled="false"
     class="people-list">
 
   <md-subheader>
@@ -20,11 +20,12 @@
 
   </md-subheader>
 
-  <md-list-item ng-class="{ 
+  <md-list-item 
+      ng-class="{ 
         'person': true, 
         'person--selected': $ctrl.isSelected(person.id), 
         'person--selectable': $ctrl.canSelectMore() || $ctrl.isSelected(person.id)}"
-      ng-repeat="person in $ctrl.list.items"
+      ng-repeat="person in $ctrl.list"
       ng-click="$ctrl.toggle(person.id)">
     <i ng-class="{
       'fa': true,
@@ -36,7 +37,3 @@
 
   </md-list-item>
 </md-list>
-<md-progress-circular 
-  class="loading"
-  ng-show="$ctrl.list.busy" 
-  md-mode="indeterminate"></md-progress-circular>
