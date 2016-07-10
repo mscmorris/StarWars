@@ -4,43 +4,25 @@
  * A list which mediates it's own state fetching from an http site
  * @author mmorris
  */
-
- let $intent$ = $scope.$createObservableFunction('loadMore')
- let url$ = new rx.Subject()
- let request$ = rx.Observable.fromPromise()
-
  export default function($http, rx) {
-
-
-
-  let DynamicList = function($intent, startUrl) {
-    this.busy      = false
-    this.items     = []
-    this.nextPage  = startUrl 
+  function HTTPDriver(request$) {
+    return request$.flatMapLatest(url => Rx.Observable.fromPromise($.get(url))).share()
   }
 
-  DynamicList.prototype.fetch = function() {
-    if(this.nextPage === null || this.busy) {
-      return
-    }
-
-    this.busy = true
-
-    $http
-    .get(this.nextPage)
-    .then(result => {
-      this.busy = false
-      this.nextPage = result.data.next
-      result.data.results.forEach(e => {
-        e.id = this.generateId(this.items.length)
-        this.items.push(e)
-      })
-    })
+  return function DynamicList(intent$, startWith) {
+    // set up our state
+    const url$  = new Rx.BehaviorSubject(startWith)
+    const page$ = new Rx.BehaviorSubject([])
+    // Perform the logic
+    const request$ = Rx.Observable.when(intent$.and(url$).thenDo((e, url) => url))
+    const response$ = HTTPDriver(request$)
+    // We're only interested in non-null values
+    const nextUrl$ = response$.map(res => res.next).filter(next => next)
+    const nextPage$ = response$.map(res => res.results)
+    // notify our state that we have changes
+    nextUrl$.subscribe(url$)
+    nextPage$.subscribe(page$)
+    // propagate
+    return page$
   }
-
-  DynamicList.prototype.generateId = function(seed) {
-    return seed + 1
-  }
-
-  return DynamicList
 }
