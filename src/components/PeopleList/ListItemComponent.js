@@ -16,11 +16,11 @@ export default {
 
     this.select = function() {
       this.selected = true
-      this.onSelected({ model: this.model })
+      this.onSelected({ $event: { model: this.model }})
     }
     this.deselect = function() {
       this.selected = false
-      this.onDeselected({ model: this.model })
+      this.onDeselected({ $event: { model: this.model }})
     }
     this.toggle = function() {
       this.selected ? this.deselect() : this.select()

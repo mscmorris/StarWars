@@ -17,9 +17,7 @@ export default function($scope) {
   }
 
   this.addSelected = function(model) {
-    if(!this.canSelectMore()) {
-      return
-    }
+    if(!this.canSelectMore()) return
     this.selected.push(model)
     this.onSelectedChange({ $event: { selected: this.selected }})
   }

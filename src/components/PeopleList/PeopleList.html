@@ -23,6 +23,6 @@
     model="person"
     intent$="$ctrl.intent$" 
     display-value="person.name"
-    on-selected="$ctrl.addSelected(model)"
-    on-deselected="$ctrl.removeSelected(model)"></list-item>
+    on-selected="$ctrl.addSelected($event.model)"
+    on-deselected="$ctrl.removeSelected($event.model)"></list-item>
 </md-list>
