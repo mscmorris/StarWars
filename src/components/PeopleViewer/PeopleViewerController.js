@@ -14,5 +14,5 @@ export default function($scope, DynamicList, BASE_API) {
   // listen for changes to the list and update the list
   DynamicList(intent$, BASE_API)
     .safeApply($scope, list => this.list = list)
-    .subscribe()
+    .subscribe(() =>{}, () => alert("List err: probably a network timeout"))
 }
